@@ -1,0 +1,192 @@
+<include file="Public:user_head" />
+	<!-- BEGIN CONTAINER -->   
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+		    <!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+                    <span class="title">我的基本信息</span>
+                    <span class="selected"></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+					<span class="title">我的账户</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+					<span class="title">我的评论</span>
+					<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li>
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>	
+				</li>
+				<li class="">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+					<span class="title">我的站内信</span>
+					</a>
+				</li>
+				<li class="last">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+					<span class="title">我的积分</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->	
+		</div>
+        <!-- END SIDEBAR -->
+        <!-- 此处分段 -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的基本信息</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页 
+							<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>我的基本信息</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row profile">
+				<div class="col-md-12">
+					<!--BEGIN TABS-->
+					<div class="tabbable tabbable-custom tabbable-full-width">
+						<ul class="nav nav-tabs">
+							<li><a href="__APP__/User/index">信息一览</a></li>
+							<li class="active"><a href="__APP__/User/modinfo">信息修改</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active">
+								<div class="row profile-account">
+									<div class="col-md-3">
+										<ul class="ver-inline-menu tabbable margin-bottom-10">
+											<li >
+												<a href="__APP__/User/modinfo">
+												    <i class="fa fa-cog"></i> 
+												    修改基本信息
+												</a>	                                    
+											</li>
+                                            <li >
+                                                <a href="__APP__/User/modavatar">
+                                                    <i class="fa fa-picture-o"></i> 
+                                                    修改头像
+                                                </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="__APP__/User/modpwd">
+                                                    <i class="fa fa-lock"></i> 
+                                                    修改密码
+                                                </a>
+                                                <span class="after"></span>
+                                            </li>
+										</ul>
+									</div>
+									<div class="col-md-9">
+										<div class="tab-content">
+											<div class="tab-pane active">
+												<form action="__URL__/pwdupdate" method="post" class="form-horizontal">
+													<div class="form-group">
+                                                        <label class="control-label">原密码</label>
+                                                        <input type="hidden" name="id" value="<{$info.id}>" />
+                                                        <input type="password" name="oldpwd" class="form-control" />
+													</div>
+													<div class="form-group">
+														<label class="control-label">新密码</label>
+														<input type="password" name="newpwd" class="form-control" />
+													</div>
+													<div class="form-group">
+														<label class="control-label">重复密码</label>
+														<input type="password" name="renewpwd" class="form-control" />
+													</div>
+													</div>
+													<div class="margiv-top-10">
+													    <button type="submit" class="btn green">修改</button>
+														<a href="__APP__/User/index" class="btn default">取消</a>
+													</div>
+												</form>
+											</div>	
+										</div>
+									</div>
+									<!--end col-md-9-->                                   
+								</div>
+							</div>
+							<!--end tab-pane-->	
+						</div>
+					</div>
+					<!--END TABS-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+		<!-- END PAGE -->    
+	</div>
+	<!-- END CONTAINER -->
+<include file="Public:user_footer" />

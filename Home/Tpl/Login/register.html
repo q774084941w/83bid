@@ -1,0 +1,124 @@
+<include file="Public:head" />
+<!-- BEGIN PAGE CONTAINER -->  
+    <div class="page-container" >
+        <!-- BEGIN BREADCRUMBS -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>用户注册</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="__APP__">主页</a></li>
+                        <li class="active">用户注册</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END BREADCRUMBS -->
+
+        <!-- BEGIN CONTAINER -->
+        <div class="container">
+          <div class="row" style="margin-bottom:40px;">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 login-signup-page">
+                <form id="signupForm" action="__URL__/checkRegister" method="post">           
+					<div class="alert alert-warning fade in" id="warn" style="display:none">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>你有信息没有填写!</strong>
+					</div> 
+                    <h2>注册用户</h2>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <div class="input-icon right"> 
+                            <!--提示信息-->
+							<i class="fa"></i>
+                            <input id="uname" name="uname" type="text" class="form-control" placeholder="用户名">
+                        </div>
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+						<div class="input-icon right"> 
+							<!--提示信息-->
+							<i class="fa"></i>
+							<input id="email" name="email" type="text" class="form-control" placeholder="电子邮箱">
+						</div>
+                    </div>    
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<div class="input-icon right">
+							<!--提示信息-->
+							<i class="fa"></i>
+							<input id="pwd" type="password" name="pwd"  class="form-control" placeholder="创建密码">
+						</div>
+                    </div>
+                    <div class="input-group margin-bottom-20 "  class="has-error">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<div class="input-icon right" >
+							<!--提示信息-->
+							<i class="fa"></i>
+							<input id="repwd" type="password" name="repwd"  class="form-control" placeholder="再次输入密码">
+						</div>
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <strong>我想：</strong>
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <div class="btn-group" data-toggle="buttons">
+                            <button class="btn btn-default">
+                                <input type="radio" name="rank" value="0" checked="checked"/>工作
+                            </button>
+                            <button class="btn btn-default">
+                                <input type="radio" name="rank" value="1" checked=""/>雇佣
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" name="sub" id="sub" class="btn theme-btn pull-right">注册</button>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="login-socio">
+                        <p class="text-muted">用其他方式登录:</p>
+                        <ul class="social-icons">
+                            <li><a class="yahoo" data-original-title="yahoo" href="#"></a></li>
+                            <li><a class="amazon" data-original-title="amazon" href="#"></a></li>
+                            <li><a class="googleplus" data-original-title="Goole Plus" href="#"></a></li>
+                            <li><a class="skype" data-original-title="skype" href="#"></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <div class="container">
+        <!-- 数据实时刷新开始 -->
+            <div class="row no-space-steps margin-bottom-40">
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-one">
+                        <h2><{$statistics['users']}></h2>
+                        <p>用户</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-two">
+                        <h2><{$statistics['projects']}></h2>
+                        <p>需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-three">
+                        <h2><{$statistics['account']}></h2>
+                        <p>项目金额</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 数据实时刷新结束 -->
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+<include file="Public:footer" />	

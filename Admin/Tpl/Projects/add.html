@@ -1,0 +1,282 @@
+<include file="Public:head_left" />
+
+<link rel="stylesheet" href="__PUBLIC__/Js/bootstrop-file/css/fileinput.min.css">
+
+<include file="Public:left" />
+
+		<div class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                <!--表格开始-->
+                    <div class="portlet box yellow">
+					    <div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>添加项目</div>
+							<div class="actions">
+								<a href="__URL__/index" class="btn green"><i class="fa fa-share"></i> 返回</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form action="__URL__/add" method="post" id="form_sample_0" class="form-horizontal" enctype="multipart/form-data">
+								<div class="form-body">
+
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button>
+										您输入的信息未通过验证，请重新输入！
+									</div>
+									<div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button>
+										您输入的信息已通过验证，可以提交！
+									</div>
+
+
+									<div class="form-group">
+										<label class="control-label col-md-3">项目名称<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="pname"/>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											项目分类
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<select name="classify_id" class="form-control">
+													<volist name="classify" id="vo">
+														<option value="<{$vo.id}>">
+															<{$vo.name}>
+														</option>
+													</volist>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">项目预算<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input type="number" class="form-control" name="budget"/>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">币值<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>
+												<select name="monetary_id" class="form-control">
+													<volist name="monetary" id="vo">
+														<option value="<{$vo.monetary_id}>">
+															<{$vo.title}>
+															&ensp;&ensp;&ensp;&ensp;
+															比例:<{$vo.conversion}>%
+														</option>
+													</volist>
+												</select>
+											</div>
+										</div>
+                                    </div>
+
+                                    <div class="form-group">
+										<label class="control-label col-md-3">竞标时长（小时）<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="number" class="form-control" name="biddingtime"/>
+											</div>
+										</div>
+                                    </div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">项目时长（小时）<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="number" class="form-control" name="projecttime"/>
+											</div>
+                                            <!--<span class="help-block">e.g: 5500 0000 0000 0004</span>-->
+										</div>
+									</div>
+
+									<!--<div class="form-group">
+										<label class="control-label col-md-3">项目所需技能<span class="required">*</span></label>
+										<div class="col-md-6">
+											<div class="input-icon right ">
+												<i class="fa"></i>
+												<volist name="skill" id="vo">
+													<span class="limitsinput">
+														<input type="checkbox" name="skill[]" value="<{$vo.skill_id}>">
+														<{$vo.name}>
+													</span>
+												</volist>
+											</div>
+                                            &lt;!&ndash;<span class="help-block">示例: http://www.demo.com or http://demo.com</span>&ndash;&gt;
+										</div>
+									</div>-->
+
+									<!--<div class="form-group">
+										<label class="control-label col-md-3">
+											项目框架
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<volist name="frame" id="vo">
+													<span class="limitsinput">
+														<input type="checkbox" name="frame[]" value="<{$vo.frame_id}>">
+														<{$vo.name}>
+													</span>
+												</volist>
+											</div>
+                                            &lt;!&ndash;<span class="help-block">示例: http://www.demo.com or http://demo.com</span>&ndash;&gt;
+										</div>
+									</div>-->
+
+
+									<!--<div class="form-group">
+										<label class="control-label col-md-3">
+											适用行业
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-6">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<volist name="applic" id="vo">
+													<span class="limitsinput">
+														<input type="checkbox" name="applic[]" value="<{$vo.applic_id}>">
+														<{$vo.name}>
+													</span>
+												</volist>
+											</div>
+                                            &lt;!&ndash;<span class="help-block">示例: http://www.demo.com or http://demo.com</span>&ndash;&gt;
+										</div>
+									</div>-->
+
+
+                                    <div class="form-group">
+										<label class="control-label col-md-3">
+											项目描述
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+                                                <textarea class="form-control" rows="3" name="description"></textarea>
+											</div>
+										</div>
+                                    </div>
+
+
+                                    <div class="form-group">
+										<label class="control-label col-md-3">
+											附件
+											<span class="required"></span>
+										</label>
+										<div class="col-md-6">
+
+											<input id="input-1a" type="file" class="file" data-show-preview="false" multiple name="enclosure">
+
+										</div>
+                                    </div>
+
+
+									<div id="myAlert" class="alert alert-warning display-hide">
+										<a href="#" class="close" data-dismiss="alert">&times;</a>
+										<strong>警告！</strong>问题个数不能超过5个
+									</div>
+									<div id="myAlert1" class="alert alert-warning display-hide">
+										<a href="#" class="close" data-dismiss="alert">&times;</a>
+										<strong>警告！</strong>问题个数不能少于1个
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											问题
+											<span class="required"></span>
+										</label>
+										<div class="col-md-4">
+
+											<input type="text" class="form-control" name="question[]">
+
+										</div>
+										<button type="button" class="fa fa-plus"  onclick='addQuestion(this)'></button>
+										<button type="button" class="fa fa-minus"  onclick='delQuestion(this)'></button>
+                                    </div>
+
+
+								</div>
+								<div class="form-actions fluid">
+									<div class="col-md-offset-3 col-md-9">
+										<button type="submit" class="btn green">提交</button>
+										<a href="__URL__/index" class="btn default">取消</a>
+									</div>
+								</div>
+							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+					<!-- END VALIDATION STATES-->
+				</div>
+			</div>
+        </div>
+<include file="Public:footer" />
+
+
+<script src="__PUBLIC__/Js/bootstrop-file/js/fileinput.min.js"></script>
+<script src="__PUBLIC__/Js/bootstrop-file/js/locales/zh.js"></script>
+
+<script>
+	var quest  = 1;
+	/**模板**/
+	var string = "" +
+		"<div class=\"form-group\">"+
+        "	<label class=\"control-label col-md-3\">"+
+        "		问题"+
+        "		<span class=\"required\"></span>"+
+        "	</label>"+
+        "	<div class=\"col-md-4\">"+
+        "		<input type=\"text\" class=\"form-control\" name=\"question[]\">"+
+        "	</div>"+
+        "	<button type=\"button\" class=\"fa fa-plus\" onclick='addQuestion(this)'></button>"+
+		"<button type=\"button\" class=\"fa fa-minus\"  onclick='delQuestion(this)'></button>"+
+        " </div>";
+	/*添加判断*/
+	function addQuestion(obj)
+	{
+		if (quest>=5)
+		{
+		    $('#myAlert').removeClass('display-hide')
+		}
+		else
+		{
+		    $(obj).parent().parent().append(string);
+			quest++;
+		}
+    }
+    /*减少判断*/
+    function delQuestion(obj)
+	{
+		if (quest<=1)
+		{
+		    $('#myAlert1').removeClass('display-hide')
+		}
+		else
+		{
+		    $(obj).parent().remove();
+			quest--;
+		}
+    }
+
+
+</script>

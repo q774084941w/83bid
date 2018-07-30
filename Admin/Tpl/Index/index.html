@@ -1,0 +1,303 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						控制面板 <small><{$mgood}><{$Think.session.admin.truename}></small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="__APP__">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">控制面板</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN DASHBOARD STATS -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro}>
+							</div>
+							<div class="desc">                           
+								个项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Projects">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>                 
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro1}>
+							</div>
+							<div class="desc">
+								个未签约项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Projects/index/status/0">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro2}>
+							</div>
+							<div class="desc">
+								个开发项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Projects/index/status/1">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro3}>
+							</div>
+							<div class="desc">
+								个上架项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Commodity">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="row">
+				<!--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro}>
+							</div>
+							<div class="desc">
+								个项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Projects">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue">
+						<div class="visual">
+							<i class="fa  fa-bookmark-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								<{$statistics.pro1}>
+							</div>
+							<div class="desc">
+								个未签约项目
+							</div>
+						</div>
+						<a class="more" href="__APP__/Projects/index/status/0">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>-->
+
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat purple">
+						<div class="visual">
+							<i class="fa fa-user"></i>
+						</div>
+						<div class="details">
+							<div class="number"><{$statistics.dsenum}></div>
+							<div class="desc">个会员者</div>
+						</div>
+						<a class="more" href="__APP__/Users/dlist">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat yellow">
+						<div class="visual">
+							<i class="fa  fa-rmb"></i>
+						</div>
+						<div class="details">
+							<div class="number"><{$statistics.money}>元</div>
+							<div class="desc">收入总计</div>
+						</div>
+						<a class="more" href="__APP__/SysAccount">
+						查看更多 <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- END DASHBOARD STATS -->
+			<div class="clearfix"></div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+<!-- BEGIN SAMPLE TABLE PORTLET-->
+					<div class="portlet box green">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa fa-cogs"></i>系统信息</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<td>服务器操作系统：</td>
+											<td><span class="label label-sm label-info"><{$sys_info.os}></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Web 服务器：</td>
+											<td><span class="label label-sm label-info"><{$sys_info.web_server}></span></td>
+										</tr>
+										<tr>
+											<td>PHP 版本：</td>
+											<td><span class="label label-sm label-info"><{$sys_info.php_ver}></span></td>
+										</tr>
+										<tr>
+											<td >MySQL 版本:</td>
+											<td><span class="label label-sm label-info"><{$sys_info.mysql}></span></td>
+										</tr>
+										<tr>
+											<td >ThinkPHP 版本：</td>
+											<td><span class="label label-sm label-info"><{$Think.version}></span></td>
+										</tr>
+										<tr>
+											<td >当前登陆ip:</td>
+											<td><span class="label label-sm label-warning"><{$ip}></span></td>
+										</tr>
+										<tr>
+											<td >登陆ip所在地:</td>
+											<td><span class="label label-sm label-warning"><{$area}></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- END SAMPLE TABLE PORTLET-->
+				</div>
+<div class="col-md-6 col-sm-6">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa  fa-bookmark-o"></i>最近项目</div>
+
+						</div>
+						<div class="portlet-body">
+							<div class="scroller" style="height: 220px;" data-always-visible="1" data-rail-visible="0">
+								<ul class="feeds">
+								<volist name="list" id="vo">
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+
+													<switch name="vo['status']">
+														<case value="0">
+															<div class="label label-sm label-danger">
+																<i class="fa fa-flag"></i>
+															</div>
+														</case>
+														<case value="1">
+															<div class="label label-sm label-warning">
+																<i class="fa fa-coffee"></i>
+															</div>
+														</case>
+														<default/>
+														<div class="label label-sm label-success">
+															<i class="fa fa-check"></i>
+														</div>
+													</switch>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														<a href="__APP__/Projects/view/id/<{$vo.id}>">
+															<{$vo.pname}>
+														</a>
+														<switch name="vo['status']">
+															<case value="0">
+																<div class="label label-sm label-danger">
+																	正在竞标中
+																</div>
+															</case>
+															<case value="1">
+																<div class="label label-sm label-warning">
+																	正在开发中
+																</div>
+															</case>
+															<default/>
+															<div class="label label-sm label-success">
+																已完成
+															</div>
+														</switch>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												<php>
+													echo date('m-d',$vo['addtime']);
+												</php>
+											</div>
+										</div>
+									</li>
+									</volist>
+								</ul>
+							</div>
+							<div class="scroller-footer">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+<include file="Public:footer" />

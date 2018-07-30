@@ -1,0 +1,120 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">       
+			<!-- BEGIN PAGE HEADER-->
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>操作</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="__URL__/index">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="__URL__/index">用户管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="__URL__/dlist">开发者列表</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+            <php>$certification = array(1=>'未认证',2=>'提交认证中',3=>'认证失败',4=>'认证成功'); </php>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN EXAMPLE TABLE PORTLET-->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>用户列表</div>
+                            <div class="actions">
+								<a href="__URL__/add" class="btn green"><i class="fa fa-plus"></i> 添加用户</a>
+							</div>
+						</div>
+                        <php>$admin_id = session('admin')['id'];</php>
+						<div class="portlet-body">
+                            <form action="__URL__/del" method="post">
+							<table class="table table-striped table-bordered table-hover" id="sample_2">
+                                <thead>
+									<tr>
+                                        <th>#ID</th>
+										<th>用户名</th>
+										<th>昵称</th>
+                                        <th>账号状态</th>
+                                        <th>实名认证</th>
+										<th>操作</th>
+									</tr>
+                                </thead>
+                                <tbody>
+								<volist name="list" id="vo">
+									<tr class="odd gradeX">
+                                        <td><{$vo.id}></td>
+                                        <td><{$vo.uname}></td>
+										<td>
+                                            <empty name="$vo['neckname']">
+                                                匿名用户
+                                                <else/>
+                                                $vo['neckname']
+                                            </empty>
+                                        </td>
+                                        <td>
+                                            <span class="label label-sm
+                <{$vo['status']=='启用'?'label-success':'label-danger'}>" >
+                                                <{$vo.status}>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <{$certification[$vo['certification']]}>
+                                            <if condition="$admin_id eq 1">
+                                                <a href="__URL__/certification/id/<{$vo.id}>"
+                                                   class="btn btn-xs yellow">
+                                                    <i class="fa fa-file-o"></i> 详情</a>
+                                            </if>
+                                        </td>
+                                        <td width="168px">
+                                            <if condition="$vo.status eq 启用">
+                                                <a href="__URL__/update/id/<{$vo.id}>/status/0/list/dlist" 
+                                                class="btn btn-xs red" style="width:50px;">
+                                                    <i class="fa fa-times"></i> 禁用</a>
+                                            <else />
+                                                <a href="__URL__/update/id/<{$vo.id}>/status/1/list/dlist" 
+                                                class="btn btn-xs blue">
+                                                    <i class="fa fa-edit"></i> 启用</a>
+                                            </if>
+                                            <a href="__URL__/view/id/<{$vo.id}>" 
+                                                class="btn btn-xs yellow">
+                                                <i class="fa fa-file-o"></i> 详情</a>
+
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table> 
+                            </form>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+        </div>
+<include file="Public:footer" />	

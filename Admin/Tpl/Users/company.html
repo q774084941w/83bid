@@ -1,0 +1,111 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->   
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>用户管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>工具</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">用户管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">用户详情</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-reorder"></i>公司详情</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <h3 class="form-section">公司信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">公司名称:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$company.company}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">公司地址:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$company.address}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                    <foreach name="$company['picture']" item="vo">
+                                        <div class="row">
+                                            <img src="<{$vo.url}>" alt="">
+                                        </div>
+                                    </foreach>
+
+                                    <!--/row-->
+                                    <div class="row">
+                                        视频
+                                    </div>
+                                </div>
+
+                                <div class="form-actions fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-offset-10 col-md-2">
+                                                <a href="__URL__/index" class="btn purple">
+                                                    <i class="fa fa-share"></i> 返回</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->  
+                        </div>
+                    </div>
+							
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->    
+		</div>
+<include file="Public:footer" />

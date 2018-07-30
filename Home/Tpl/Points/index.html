@@ -1,0 +1,149 @@
+<include file="Public:user_head" />
+	<!-- BEGIN CONTAINER -->   
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+		    <!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+					<span class="title">我的基本信息</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+					<span class="title">我的账户</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+					<span class="title">我的评论</span>
+					<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li>
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>	
+				</li>
+				<li class="">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+					<span class="title">我的站内信</span>
+					</a>
+				</li>
+				<li class="last active">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+                    <span class="title">我的积分</span>
+                    <span class="selected"></span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->	
+		</div>
+        <!-- END SIDEBAR -->
+        <!-- 此处分段 -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的积分</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页 
+							<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>我的积分</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row profile">
+				<div class="col-md-12">
+                    <div class="tab-pane">
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th><i class="fa fa-tags"></i> 获得积分</th>
+                                        <th><i class="fa fa-clock-o"></i> 获得积分时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="info" id="vo">
+                                    <tr>
+                                        <td><span class="label label-success label-sm"><{$vo.points}></span></td>
+                                        <td><a class="btn default btn-xs green-stripe"><{$vo.pointstime}></a></td>
+                                    </tr>
+                                    </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--end tab-pane-->	
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+		<!-- END PAGE -->    
+	</div>
+	<!-- END CONTAINER -->
+<include file="Public:user_footer" />

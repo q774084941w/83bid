@@ -1,0 +1,7 @@
+[ 2018-07-19T10:42:15+08:00 ] ERR: (ThinkException) 非法操作:addPost
+[ 2018-07-19T14:06:41+08:00 ] ERR: (ThinkException) 模板不存在[./Admin/Tpl/Chat/index.html]
+[ 2018-07-19T15:24:50+08:00 ] ERR: (ThinkException) 模板不存在[./Admin/Tpl/Chat/details.html]
+[ 2018-07-19T16:46:57+08:00 ] ERR: (ThinkException) 非法操作:add
+[ 2018-07-19T17:12:03+08:00 ] ERR: (ThinkException) 非法操作:update
+[ 2018-07-19T17:21:17+08:00 ] ERR: (ThinkException) 非法操作:del
+[ 2018-07-19T18:44:18+08:00 ] ERR: (ThinkException) 非法操作:add

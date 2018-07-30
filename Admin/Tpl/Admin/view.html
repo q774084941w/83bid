@@ -1,0 +1,186 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->   
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>工具</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">管理员管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">管理员详情</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-reorder"></i>管理员详情</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <h2 class="margin-bottom-20"> 管理员信息 - <{$info.truename}> </h2>
+                                    <h3 class="form-section">个人信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">用户名:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.aname}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">真实姓名:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.truename}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">电话:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.phone}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">电子邮箱:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.email}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <h3 class="form-section">账号信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">账号创建时间:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.addtime}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">上次登录时间:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.lastlogin}></p>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">所属管理员组:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.title}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">上次登录IP:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.lastip}></p>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->           
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">账号状态:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.status}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">上次登录地点:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static">北京</p>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <!--/span-->
+                                    </div>
+                                </div>
+                                <div class="form-actions fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-offset-10 col-md-2">
+                                                <a href="__URL__/mod/id/<{$info.id}>" class="btn green"><i class="fa fa-pencil"></i> 编辑</a>
+                                                <a href="__URL__/index" class="btn purple"><i class="fa fa-share"></i> 返回</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->  
+                        </div>
+                    </div>
+							
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->    
+		</div>
+<include file="Public:footer" />

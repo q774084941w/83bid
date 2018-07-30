@@ -1,0 +1,51 @@
+.balloonspan{
+    float:left;
+    width:199px;
+    text-align:center;
+}
+.balloonspan p{
+    margin-top:16px;
+    display:none;    
+}
+.balloon{
+    margin-left:57px;
+    width:0px;
+    height:85px;
+    background:url('../Images/intro/1.png') no-repeat;
+}
+.arrow{
+    width:0px;
+    height:27px;
+    background:url('../Images/intro/0.png') no-repeat;
+    margin-left:91px;
+    margin-top:29px;
+}
+
+.mythumbnail{
+    width:60px;
+    height:60px;
+    float:right;
+    text-align:center;
+    margin-right:8px;
+}
+
+.mystar1{
+    float:left;
+    width:75px;
+    height:18px;
+    background:url("../Images/intro/star1.png") no-repeat;
+}
+.mystar0{
+    width:234px;
+    height:18px;
+    text-align:right;
+    margin-bottom:10px;
+    background:url("../Images/intro/star0.png") no-repeat;
+}
+.mystar0 span{
+    height:18px;
+    line-height:18px;
+    font-size:18px;
+    color:#ccc;
+    margin-right:30px;
+}

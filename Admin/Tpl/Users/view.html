@@ -1,0 +1,239 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->   
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>用户管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>工具</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">用户管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">用户详情</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-reorder"></i>用户详情</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <php>$admin_id = session('admin')['id'];</php>
+                            <form class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <h3 class="margin-bottom-20">用户头像　 
+                                    <img style="height:100px;width:100px;" src="__ROOT__/Uploads/users/<{$info.avatar}>">
+                                    </h3>
+                                    <h3 class="form-section">个人信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">用户名:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.uname}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+
+                                    <if condition="$admin_id eq 1" >
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">电话:</label>
+                                                    <div class="col-md-9">
+                                                        <p class="form-control-static"><{$info.phone|default='用户暂未填写'}></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">电子邮箱:</label>
+                                                    <div class="col-md-9">
+                                                        <p class="form-control-static">
+                                                            <{$info.email}>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                    </if>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">用户账户:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static">
+                                                        <{$info.account}>
+
+                                                    <a
+                        href="__URL__/account/id/<{$info.id}>"
+                                                       class="btn btn-xs yellow">
+                                                        <i class="fa fa-file-o"></i>
+                                                        详情
+                                                    </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">用户所在地:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.location|default='用户暂未填写'}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">用户评分:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.dlevel}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">账号状态:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static">
+                                                        <switch name="info.status">
+                                                            <case value="1">
+                                                                启用
+                                                            </case>
+                                                            <case value="0">
+                                                                禁用
+                                                            </case>
+                                                            <default/>
+                                                            未知属性
+                                                        </switch>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">账号创建时间:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.addtime}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">rank积分</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.rank}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <h4 class="form-section">开发者技能</h4>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <p class="form-control-static">
+                                                        <empty name="skill">
+
+                                                            未选取
+
+                                                            <else/>
+
+                                                            <volist name="skill" id="vo">
+                                                                <span class="btn btn-xs green">
+                                                                    <{$vo.name}>
+                                                                </span>
+                                                            </volist>
+
+                                                        </empty>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="form-section">摘要</h4>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <p class="form-control-static"><{$info.abstract|default='用户暂未填写'}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-offset-10 col-md-2">
+                                                <a href="__URL__/index" class="btn purple">
+                                                    <i class="fa fa-share"></i> 返回</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->  
+                        </div>
+                    </div>
+							
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->    
+		</div>
+<include file="Public:footer" />

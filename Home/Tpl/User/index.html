@@ -1,0 +1,205 @@
+<include file="Public:user_head" />
+	<!-- BEGIN CONTAINER -->   
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+		    <!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+                    <span class="title">我的基本信息</span>
+                    <span class="selected"></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+					<span class="title">我的账户</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+					<span class="title">我的评论</span>
+					<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li>
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>	
+				</li>
+				<li class="">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+					<span class="title">我的站内信</span>
+					</a>
+				</li>
+				<li class="last">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+					<span class="title">我的积分</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->	
+		</div>
+        <!-- END SIDEBAR -->
+        <!-- 此处分段 -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的基本信息</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页 
+							<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>我的基本信息</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row profile">
+				<div class="col-md-12">
+					<!--BEGIN TABS-->
+					<div class="tabbable tabbable-custom tabbable-full-width">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="__APP__/User/index">信息一览</a></li>
+                            <li><a href="__APP__/User/modinfo">信息修改</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active">
+								<div class="row">
+									<div class="col-md-3">
+										<ul class="list-unstyled profile-nav">
+											<li><img src="__ROOT__/Uploads/users/<{$info.avatar}>" class="img-responsive" alt="" /> 
+												<a href="__URL__/modavatar" class="profile-edit">编辑</a>
+											</li>
+											<li><a href="__APP__/Accounts/index">我的账户</a></li>
+											<li><a href="__APP__/UserProjects/index">我的项目</a></li>
+											<li><a href="__APP__/Comments/">我的评论</a></li>
+											<li><a href="__APP__/Points/index">我的积分</a></li>
+										</ul>
+									</div>
+									<div class="col-md-9">
+										<div class="row">
+											<div class="col-md-8 profile-info">
+                                                <h1><{$info.uname}></h1> 
+                                                <p>
+                                                    <{$info.dselfintro|default="用户没有输入自我介绍！"}>
+                                                </p>
+												<ul class="list-inline">
+                                                    <li><i class="fa fa-map-marker"></i> <{$info.location|default="用户未填写"}></li>
+                                                    <li><i class="fa fa-calendar"></i> <{$info.addtime}></li>
+                                                    <li><i class="fa fa-envelope"></i> <{$info.email}></li>
+                                                    <li><i class="fa fa-mobile"></i> <{$info.phone|default="用户电话未填写"}></li>
+                                                    <li><i class="fa fa-heart"></i> <{$info.rank}></li>
+                                                    <li><i class="fa fa-tags"></i> <{$info.skills|default="用户技能未填写"}></li>
+												</ul>
+											</div>
+											<!--end col-md-8-->
+											<div class="col-md-4">
+												<div class="portlet sale-summary">
+													<div class="portlet-title">
+														<div class="caption">信息统计</div>
+													</div>
+													<div class="portlet-body">
+														<ul class="list-unstyled">
+															<li>
+																<span class="sale-info">开发者声誉 <i class="fa fa-img-up"></i></span> 
+                                                                <span class="sale-num"><{$info.dlevel}></span>
+															</li>
+															<li>
+																<span class="sale-info">雇佣者声誉 <i class="fa fa-img-down"></i></span> 
+                                                                <span class="sale-num"><{$info.elevel}></span>
+															</li>
+															<li>
+																<span class="sale-info">发布项目数</span> 
+                                                                <span class="sale-num"><{$info.outpronum}></span>
+                                                            </li>
+                                                            <li>
+																<span class="sale-info">完成项目数</span> 
+                                                                <span class="sale-num"><{$info.inpronum}></span>
+															</li>
+															<li>
+																<span class="sale-info">项目总收益</span> 
+                                                                <span class="sale-num">￥<{$info.income|default='0.0'}></span>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<!--end col-md-4-->
+										</div>
+										<!--end row-->	
+									</div>
+								</div>
+							</div>
+							<!--tab_1_2-->	
+						</div>
+					</div>
+					<!--END TABS-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+		<!-- END PAGE -->    
+	</div>
+	<!-- END CONTAINER -->
+<include file="Public:user_footer" />

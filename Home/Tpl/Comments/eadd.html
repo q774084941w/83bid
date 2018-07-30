@@ -1,0 +1,226 @@
+<include file="Public:user_head" />
+	<!-- BEGIN CONTAINER -->   
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+		    <!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value="" />
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+					<span class="title">我的基本信息</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+					<span class="title">我的账户</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="active">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+                    <span class="title">我的评论</span>
+                    <span class="selected"></span>
+					<span class="arrow open"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li class="active">
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>
+				</li>
+				<li class="">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+					<span class="title">我的站内信</span>
+					</a>
+				</li>
+				<li class="last">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+					<span class="title">我的积分</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->	
+		</div>
+        <!-- END SIDEBAR -->
+        <!-- 此处分段 -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的评论</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页 
+							<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+                            我的评论
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>开发者评论</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row profile">
+				<div class="col-md-12">
+					<!--BEGIN TABS-->
+					<div class="tabbable tabbable-custom tabbable-full-width">
+						<ul class="nav nav-tabs">
+							<li><a href="__APP__/Comments/esent">发出的评论</a></li>
+                            <li><a href="__APP__/Comments/ereceived">收到的评论</a></li>
+							<li class="active"><a href="__APP__/Comments/eundone">未完成的评论</a></li>
+						</ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+								<div class="row">
+									<div class="col-md-offset-2 col-md-3">
+										<ul class="list-unstyled profile-nav">
+                                            <li><img src="__ROOT__/Uploads/users/<{$info.avatar}>" class="img-responsive" alt="" /> 
+											</li>
+                                            <li><a>评论用户：<{$info.uname}></a></li>
+                                            <li><a>项目编号：<{$info.pnumber}></a></li>
+                                            <li><a>项目名称：<{$info.pname}></a></li>
+										</ul>
+									</div>
+									<div class="col-md-6">
+                                        <div class="col-md-8">
+                                            <div class="portlet sale-summary">
+                                                <div class="portlet-title">
+                                                    <div class="caption">动态评分</div>
+                                                </div>
+                                                <form role="form" action="__APP__/Comments/einsert" method="post">
+                                                <div class="portlet-body">
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <p>工作质量</p>
+                                                            <div class="mystar0">
+                                                                <div class="mystar1"></div>
+                                                                <span class="sale-num">4.0</span>
+                                                                <input type="hidden" name="firstlevel" id="star0" value="4.0" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <p>交流</p>
+                                                            <div class="mystar0">
+                                                                <div class="mystar1"></div>
+                                                                <span class="sale-num">4.0</span>
+                                                                <input type="hidden" name="secondlevel" id="star1" value="4.0" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <p>专业知识</p>
+                                                            <div class="mystar0">
+                                                                <div class="mystar1"></div>
+                                                                <span class="sale-num">4.0</span>
+                                                                <input type="hidden" name="thirdlevel" id="star2" value="4.0" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <p>工作效率</p>
+                                                            <div class="mystar0">
+                                                                <div class="mystar1"></div>
+                                                                <span class="sale-num">4.0</span>
+                                                                <input type="hidden" name="fourthlevel" id="star3" value="4.0" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <p>再次雇佣意愿</p>
+                                                            <div class="mystar0">
+                                                                <div class="mystar1"></div>
+                                                                <span class="sale-num">4.0</span>
+                                                                <input type="hidden" name="fivethlevel" id="star4" value="4.0" />
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>  
+                                            </div>
+											<div class="form-group">
+												<label class="control-label">评论详情</label>
+												<textarea name="content" class="form-control" rows="8" placeholder="评论详情"></textarea>
+											</div>
+                                            <div class="margiv-top-10">
+                                                <input type="hidden" name="reviewerid" value="<{$Think.session.user.id}>" />
+                                                <input type="hidden" name="byreviewerid" value="<{$info.bidderid}>" />
+                                                <input type="hidden" name="pnumber" value="<{$info.pnumber}>" />
+                                                <input type="hidden" name="pname" value="<{$info.pname}>" />
+                                                <input type="hidden" name="type" value="0" />
+                                                <input type="hidden" name="pstatus" value="<{$info.status}>" />
+                                                <button type="submit" class="btn green">确定</button>
+												<a href="__APP__/Comments/eundone" class="btn default">取消</a>
+											</div>
+										    </form>
+                                        </div>
+                                        <!--end col-md-6-->
+									</div>
+								</div>
+							</div>
+							<!--tab_1_1-->	
+						</div>
+					</div>
+					<!--END TABS-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+		<!-- END PAGE -->    
+    </div>
+	<!-- END CONTAINER -->
+<include file="Public:user_footer" />

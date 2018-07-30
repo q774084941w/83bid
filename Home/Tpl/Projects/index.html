@@ -1,0 +1,127 @@
+<include file="Public:head" />
+    <!-- 页面内容开始 -->  
+    <div class="page-container" >
+        <!-- 面包屑导航开始 -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>浏览项目</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="__APP__">主页</a></li>
+                        <li class="active">浏览项目</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 面包屑导航结束 -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN CONTAINER -->
+    		    <div class="container min-hight portfolio-page margin-bottom-40">
+    			    <!-- BEGIN FILTER -->           
+    			    <div class="filter-v1">
+                        <ul class="mix-filter">
+                            <li class="filter active" data-filter="all">所有</li>
+                            <li class="filter" data-filter="category_1">网站开发</li>
+                            <li class="filter" data-filter="category_2">网站设计</li>
+                            <li class="filter" data-filter="category_3">SEO营销</li>
+                            <li class="filter" data-filter="category_4">移动应用</li>
+                            <li class="filter" data-filter="category_5">文章写作</li>
+                            <li class="filter" data-filter="category_6">名片设计</li>
+                            <li class="filter" data-filter="category_7">徽标设计</li>
+                            <li class="filter" data-filter="category_8">数据输入</li>
+                        </ul>
+                        <div class="row mix-grid thumbnails">
+                            <volist name="list" id="vo">
+                            <if condition="$vo.category eq 1">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_1 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 2">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_2 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 3">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_3 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 4">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_4 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 5">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_5 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 6">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_6 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 7">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_7 mix_all">
+                            </if>
+
+                            <if condition="$vo.category eq 8">
+                            <div style="display: inline-block;  opacity: 1;" 
+                                    class="col-md-3 col-sm-4 mix category_8 mix_all">
+                            </if>
+
+                                <div class="mix-inner">
+                                    <img class="img-responsive" src="__ROOT__/Uploads/projects/<{$vo.category}>.jpg" alt="">
+                                    <div class="mix-details">
+                                        <h4><{$vo.pname}></h4>
+                                        <a class="mix-link" href="__URL__/view/id/<{$vo.id}>">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                        <a class="mix-preview fancybox-button" 
+                                            href="__ROOT__/Uploads/projects/<{$vo.category}>.jpg" 
+                                            title="项目编号:<{$vo.pnumber}>" >
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                    </div>           
+                                </div>                       
+                            </div>
+                            </volist>  
+                        </div>
+                    </div>
+                    <!-- END FILTER -->
+                </div>
+                <!-- END CONTAINER -->
+        	</div>
+        </div>
+        <!-- 数据实时刷新开始 -->
+        <div class="container">
+            <div class="row no-space-steps margin-bottom-40">
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-one">
+                        <h2><{$statistics['users']}></h2>
+                        <p>用户</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-two">
+                        <h2><{$statistics['projects']}></h2>
+                        <p>需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-three">
+                        <h2><{$statistics['account']}></h2>
+                        <p>项目金额</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <!-- 数据实时刷新结束 -->
+    </div>
+    <!-- 页面内容结束 -->
+<include file="Public:footer" />

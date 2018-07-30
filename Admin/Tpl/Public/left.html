@@ -1,0 +1,440 @@
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul class="page-sidebar-menu">
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li>
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <form class="sidebar-search" action="no" method="post">
+                <div class="form-container">
+                    <div class="input-box">
+                        <a href="javascript:;" class="remove"></a>
+                        <input type="text" placeholder="搜索..."/>
+                        <input type="button" class="submit" value=" "/>
+                    </div>
+                </div>
+            </form>
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        <volist name="left" id="vo">
+
+            <empty name="vo['children']" >
+                <li class="tooltips <{$thisNavigation1==$vo['controller']?'active':''}>" data-placement="right" data-original-title="点击<{$vo.name}>">
+                    <a href="__APP__/<{$vo.controller}>/<{$vo.action}>">
+                        <i class="fa fa-<{$vo.icon}>"></i>
+                        <span class="title"><{$vo.name}></span>
+                    </a>
+                </li>
+                <else/>
+
+                <php>
+                    $type = false;
+                    foreach ($vo['children'] as $val)
+                    {
+                        if($thisNavigation1==$val['controller'])
+                        {
+                            $type = true;
+                            break;
+                        }
+                    }
+                </php>
+
+                <li class="<{$type?'open':''}>">
+                    <a href="javascript:;">
+                        <i class="fa fa-<{$vo.icon}>"></i>
+                        <span class="title"><{$vo.name}></span>
+                        <span class="arrow <{$type?'open':''}>"></span>
+                    </a>
+                    <ul class="sub-menu" style="display:<{$type?'block':'none'}>">
+                        <volist name="vo['children']" id="vol">
+                            <li class="tooltips <{$thisNavigation1==$vol['controller'] ?'active':''}>" data-placement="right" data-original-title="点击查看<{$vol.name}>">
+                                <a href="__APP__/<{$vol.controller}>/<{$vol.action}>">
+                                    <{$vol.name}></a>
+                            </li>
+                        </volist>
+                    </ul>
+                </li>
+            </empty>
+
+        </volist>
+       <!-- <li class="tooltips <switch name='thisNavigation' >
+        <case value='/'>active</case>
+        <case value='Index/index'>active</case>
+        <default />
+        </switch>"  data-placement="right" data-original-title="点击主页">
+            <a href="__APP__">
+                <i class="fa fa-home"></i>
+                <span class="title">主页</span>
+            </a>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='Users'>open</case>
+            <case value='Rank'>open</case>
+            <case value='Chat'>open</case>
+            <default />
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-user"></i>
+                <span class="title">用户管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='Users'>block</case>
+            <case value='Rank'>block</case>
+            <case value='Chat'>block</case>
+            <default />none
+            </switch>">
+                <li class="tooltips <{$thisNavigation1=='Users'?'active':''}>" data-placement="right" data-original-title="点击查看用户">
+                    <a href="__APP__/Users/dlist">
+                        用户列表</a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='Rank'?'active':''}>" data-placement="right" data-original-title="点击查看rank规则">
+                    <a href="__APP__/Rank">
+                        RANK积分规则</a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='Chat'?'active':''}>" data-placement="right" data-original-title="点击查看聊天列表">
+                    <a href="__APP__/Chat">
+                        聊天列表</a>
+                </li>
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='Projects'>open</case>
+            <case value='Classify'>open</case>
+            <case value='Commodity'>open</case>
+            <case value='Skill'>open</case>
+            <case value='Applic'>open</case>
+            <case value='Frame'>open</case>
+            <default />
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-bookmark-o"></i>
+                <span class="title">项目管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='Projects'>block</case>
+            <case value='Classify'>block</case>
+            <case value='Commodity'>block</case>
+            <case value='Skill'>block</case>
+            <case value='Applic'>block</case>
+            <case value='Frame'>block</case>
+            <default />none
+            </switch>">
+
+                <li class="tooltips <{$thisNavigation1=='Projects'?'active':''}>" data-placement="right" data-original-title="点击查看项目">
+                    <a href="__APP__/Projects">
+                        项目列表</a>
+                </li>
+
+                <li class="tooltips <{$thisNavigation1=='Classify'?'active':''}>" data-placement="right" data-original-title="点击查看项目">
+                    <a href="__APP__/Classify">
+                        项目分类</a>
+                </li>
+
+                <li class="tooltips <{$thisNavigation1=='Commodity'?'active':''}>" data-placement="right" data-original-title="点击查看上架项目">
+                    <a href="__APP__/Commodity">
+                        上架项目</a>
+                </li>
+
+                &lt;!&ndash;<li class="tooltips <{$thisNavigation1=='Skill'?'active':''}>" data-placement="right" data-original-title="点击查看技能分类">
+                    <a href="__APP__/Skill">
+                        技能分类
+                    </a>
+                </li>
+
+                <li class="tooltips <{$thisNavigation1=='Applic'?'active':''}>" data-placement="right" data-original-title="点击查看行业分类">
+                    <a href="__APP__/Applic">
+                        行业分类
+                    </a>
+                </li>
+
+                <li class="tooltips <{$thisNavigation1=='Frame'?'active':''}>" data-placement="right" data-original-title="点击查看框架分类">
+                    <a href="__APP__/Frame">
+                        框架分类
+                    </a>
+                </li>&ndash;&gt;
+
+
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='Examine'>open</case>
+            <case value='AuditClassify'>open</case>
+            <case value='QExamine'>open</case>
+            <case value='Grounding'>open</case>
+            <default />
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-retweet"></i>
+                <span class="title">审核管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='Examine'>block</case>
+            <case value='AuditClassify'>block</case>
+            <case value='QExamine'>block</case>
+            <case value='Grounding'>block</case>
+            <default />none
+            </switch>">
+                <li class="tooltips <{$thisNavigation1=='Examine'?'active':''}>" data-placement="right" data-original-title="点击查看项目审信息">
+                    <a href="__APP__/Examine">
+                        项目审核列表
+                    </a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='QExamine'?'active':''}>" data-placement="right" data-original-title="点击查看问答信息">
+                    <a href="__APP__/QExamine">
+                        问答审核列表
+                    </a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='Grounding'?'active':''}>" data-placement="right" data-original-title="点击查看上架项目信息">
+                    <a href="__APP__/Grounding">
+                        上架审核列表
+                    </a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='AuditClassify'?'active':''}>" data-placement="right" data-original-title="点击查看审核分类">
+                    <a href="__APP__/AuditClassify">
+                        审核分类</a>
+                </li>
+            </ul>
+        </li>
+        <li class="<{$thisNavigation1=='Admin'?'open':''}>">
+            <a href="javascript:;">
+                <i class="fa fa-user-md"></i>
+                <span class="title">管理员管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:<{$thisNavigation1=='Admin'?'block':'none'}>">
+                <li class="tooltips <{$thisNavigation=='Admin/'?'active':''}>" data-placement="right" data-original-title="点击查看管理员">
+                    <a href="__APP__/Admin">
+                        管理员列表</a>
+                </li>
+                <li class="tooltips <{$thisNavigation=='Admin/add'?'active':''}>" data-placement="right" data-original-title="添加管理员">
+                    <a href="__APP__/Admin/add">
+                        添加管理员</a>
+                </li>
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='AdminGroup'>open</case>
+            <case value='AdminMenu'>open</case>
+            <default />
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-group"></i>
+                <span class="title">权限管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='AdminGroup'>block</case>
+            <case value='AdminMenu'>block</case>
+            <default />
+            </switch>">
+                <li class="tooltips <{$thisNavigation=='AdminGroup/'?'active':''}>" data-placement="right" data-original-title="点击查看管理员组">
+                    <a href="__APP__/AdminGroup">
+                        管理员组列表
+                    </a>
+                </li>
+                <li  class="tooltips <{$thisNavigation=='AdminGroup/add'?'active':''}>" data-placement="right" data-original-title="点击添加管理员组">
+                    <a href="__APP__/AdminGroup/add">
+                        添加管理员组
+                    </a>
+                </li>
+                <li  class="tooltips <{$thisNavigation1=='AdminMenu'?'active':''}>" data-placement="right" data-original-title="点击查看后台菜单">
+                    <a href="__APP__/AdminMenu">
+                        后台菜单
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='SysAccount'>open</case>
+            <case value='UserAccount'>open</case>
+            <case value='Pay'>open</case>
+            <case value='Monetary'>open</case>
+            <default />
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-cny"></i>
+                <span class="title">账户管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='SysAccount'>block</case>
+            <case value='UserAccount'>block</case>
+            <case value='Pay'>block</case>
+            <case value='Monetary'>block</case>
+            <default />none
+            </switch>">
+                <li class="tooltips <{$thisNavigation1=='SysAccount'?'active':''}>" data-placement="right" data-original-title="点击查看系统收支记录">
+                    <a href="__APP__/SysAccount">
+                        系统收支记录</a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='UserAccount'?'active':''}>" data-placement="right" data-original-title="点击查看个人交易记录">
+                    <a href="__APP__/UserAccount">
+                        个人交易记录</a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='Pay'?'active':''}>" data-placement="right" data-original-title="点击查看支付方式">
+                    <a href="__APP__/Pay">
+                        支付方式</a>
+                </li>
+                <li class="tooltips <{$thisNavigation1=='Monetary'?'active':''}>" data-placement="right" data-original-title="点击查看币值">
+                    <a href="__APP__/Monetary">
+                        币值</a>
+                </li>
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='Comments'>block</case>
+            <case value='Interlocution'>block</case>
+            <default />none
+            </switch>">
+            <a href="javascript:;">
+                <i class="fa fa-comments-o"></i>
+                <span class="title">评论管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='Comments'>block</case>
+            <case value='Interlocution'>block</case>
+            <default />none
+            </switch>">
+                <li  class="tooltips <{$thisNavigation1=='Comments'?'active':''}>" data-placement="right" data-original-title="点击查看评论">
+                    <a href="__APP__/Comments/dlist">
+                        评论列表
+                    </a>
+                </li>
+                <li  class="tooltips <{$thisNavigation1=='Interlocution'?'active':''}>" data-placement="right" data-original-title="点击查看问答">
+                    <a href="__APP__/Interlocution">
+                        问答列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        &lt;!&ndash;<li class="<{$thisNavigation1=='Points'?'open':''}>">
+            <a href="javascript:;">
+                <i class="fa fa-tags"></i>
+                <span class="title">积分管理</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu" style="display:<{$thisNavigation1=='Points'?'block':'none'}>" >
+                <li class="tooltips <{$thisNavigation=='Points/'?'active':''}>" data-placement="right" data-original-title="点击查看积分">
+                    <a href="__APP__/Points">
+                        积分列表</a>
+                </li>
+            </ul>
+        </li>&ndash;&gt;
+        <li class="<{$thisNavigation1=='Statistics'?'open':''}>">
+            <a href="javascript:;">
+                <i class="fa fa-bar-chart-o"></i>
+                <span class="title">统计管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:<{$thisNavigation1=='Statistics'?'block':'none'}>">
+                <li class="tooltips <{$thisNavigation=='Statistics/'?'active':''}>" data-placement="right" data-original-title="点击查看统计">
+                    <a href="__APP__/Statistics">
+                        统计列表</a>
+                </li>
+            </ul>
+        </li>
+        &lt;!&ndash;<li class="<{$thisNavigation1=='StationMail'?'open':''}>">
+            <a href="javascript:;">
+                <i class="fa fa-envelope"></i>
+                <span class="title">站内信管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:<{$thisNavigation1=='StationMail'?'block':'none'}>">
+                <li class="tooltips <{$thisNavigation=='StationMail/'?'active':''}>" data-placement="right" data-original-title="点击查看站内信">
+                    <a href="__APP__/StationMail">
+                        站内信列表</a>
+                </li>
+            </ul>
+        </li>&ndash;&gt;
+        <li class="<{$thisNavigation1=='Syslog'?'open':''}>">
+            <a href="javascript:;">
+                <i class="fa fa-calendar"></i>
+                <span class="title">日志管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" style="display:<{$thisNavigation1=='Syslog'?'block':'none'}>">
+                <li class="tooltips <{$thisNavigation=='Syslog/'?'active':''}>" data-placement="right" data-original-title="点击查看日志">
+                    <a href="__APP__/Syslog">
+                        日志列表</a>
+                </li>
+            </ul>
+        </li>
+        <li class="<switch name='thisNavigation1' >
+            <case value='Sysmanage'>open</case>
+            <case value='Question'>open</case>
+            <case value='QuestionType'>open</case>
+            <case value='Page'>open</case>
+            <case value='Edition'>open</case>
+            <default />none
+            </switch>" >
+            <a href="javascript:;">
+                <i class="fa fa-cogs"></i>
+                <span class="title">站点配置</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu" style="display:
+            <switch name='thisNavigation1' >
+            <case value='Sysmanage'>block</case>
+            <case value='Question'>block</case>
+            <case value='QuestionType'>block</case>
+            <case value='Page'>block</case>
+            <case value='Edition'>block</case>
+            <default />none
+            </switch>">
+                <li class="tooltips
+                <{$thisNavigation1=='Sysmanage'?'active':''}>"
+                    data-placement="right"
+                    data-original-title="点击查看基本配置">
+                    <a href="__APP__/Sysmanage">
+                        基础配置</a>
+                </li>
+                <li class="tooltips
+                <{$thisNavigation1=='Question'?'active':''}>"
+                    data-placement="right"
+                    data-original-title="点击查看常见问题">
+                    <a href="__APP__/Question">
+                        常见问题</a>
+                </li>
+                <li class="tooltips
+                <{$thisNavigation1=='QuestionType'?'active':''}>"
+                    data-placement="right"
+                    data-original-title="点击查看常见问题类型">
+                    <a href="__APP__/QuestionType">
+                        常见问题类型</a>
+                </li>
+                <li class="tooltips
+                <{$thisNavigation1=='Page'?'active':''}>"
+                    data-placement="right"
+                    data-original-title="点击查看单页面列表">
+                    <a href="__APP__/Page">
+                        单页面列表</a>
+                </li>
+                <li class="tooltips
+                <{$thisNavigation1=='Edition'?'active':''}>"
+                    data-placement="right"
+                    data-original-title="点击查看版本列表">
+                    <a href="__APP__/Edition">
+                        版本列表</a>
+                </li>
+
+            </ul>
+        </li>-->
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR -->

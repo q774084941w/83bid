@@ -1,0 +1,188 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                <!--表格开始-->
+                    <div class="portlet box yellow">
+					    <div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>修改商品</div>
+							<div class="actions">
+								<a href="__URL__/index" class="btn green"><i class="fa fa-share"></i> 返回</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form action="__URL__/change" method="post" id="form_sample_0" class="form-horizontal" enctype="multipart/form-data">
+								<input type="hidden" name="id" value="<{$data.id}>">
+								<div class="form-body">
+
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button>
+										您输入的信息未通过验证，请重新输入！
+									</div>
+									<div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button>
+										您输入的信息已通过验证，可以提交！
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											标题
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="title" required value="<{$data.title}>"/>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											完成项目
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<select name="projects" class="form-control">
+													<volist name="list" id="vo">
+														<option value="<{$vo.id}>,<{$vo.pnumber}>"  <{$vo['id']==$data['projects_id']?'selected':''}>>
+															<{$vo.pnumber}>
+														</option>
+													</volist>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											价格
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input type="text" class="form-control" name="price" required value="<{$data.price}>"/>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											封面图片
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input type="file" class="form-control" name="img" required onchange="xmTanUploadImg(this)" value="<{$data.img}>"/>
+												<img src="<{$data.img}>" alt="">
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											包安装
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<select name="install" id=""  class="form-control" >
+													<option value="1" <{$data['install']==1?'selected':''}>>否</option>
+													<option value="2" <{$data['install']==2?'selected':''}>>是</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											包修改
+											<span class="required">*</span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<select name="modify" id=""  class="form-control" >
+													<option value="1" <{$data['modify']==1?'selected':''}>>否</option>
+													<option value="2" <{$data['modify']==2?'selected':''}>>是</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-3">
+											详细介绍
+											<span class="required">*</span>
+										</label>
+									</div>
+									<div class="form-group" style="text-align: center">
+										<div class="col-sm-2"></div>
+										<div class="col-sm-8">
+											<textarea id="content" name="content" required><{$data.content}></textarea>
+										</div>
+										<div class="col-sm-2"></div>
+									</div>
+
+								</div>
+								<div class="form-actions fluid">
+									<div class="col-md-offset-3 col-md-9">
+										<button type="submit" class="btn green">提交</button>
+										<a href="__URL__/index" class="btn default">取消</a>
+									</div>
+								</div>
+							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+					<!-- END VALIDATION STATES-->
+				</div>
+			</div>
+        </div>
+<include file="Public:footer" />
+
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:200})
+</script>
+
+<script type="text/javascript">
+    //判断浏览器是否支持FileReader接口
+    if (typeof FileReader == 'undefined') {
+        document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+        //使选择控件不可操作
+        document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+    }
+
+    //选择图片，马上预览
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+
+        var reader = new FileReader();
+
+        //读取文件过程方法
+
+        reader.onload = function (e) {
+
+            var img = $(obj).next()[0];
+            img.src = e.target.result;
+            //或者 img.src = this.result;  //e.target == this
+        }
+
+        reader.readAsDataURL(file)
+    }
+</script>

@@ -1,0 +1,81 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->   
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>工具</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">积分管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">修改积分信息</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN VALIDATION STATES-->
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>修改积分信息</div>
+							<div class="actions">
+								<a href="__URL__/index" class="btn green"><i class="fa fa-share"></i> 返回</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form action="__URL__/update" method="post" class="form-horizontal">
+								<div class="form-body">
+									<h3 class="form-section">基本信息修改</h3>
+									<div class="form-group">
+										<label class="control-label col-md-3">积分</label>
+                                        <div class="col-md-4">
+                                            <input type="hidden" name="id" value="<{$info.id}>" />
+											<input type="text" name="points" value="<{$info.points}>" class="form-control" id="inputWarning" />
+											<!--<span class="help-block">Something may have gone wrong</span>-->
+                                        </div>
+									</div>								
+								</div>
+								<div class="form-actions fluid">
+									<div class="col-md-offset-3 col-md-9">
+										<button type="submit" class="btn green">修改</button>
+										<a href="__URL__/index" class="btn default">取消</a>                       
+									</div>
+								</div>
+							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+					<!-- END VALIDATION STATES-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT--> 
+		</div>
+<include file="Public:footer" />	

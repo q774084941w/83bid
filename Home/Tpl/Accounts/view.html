@@ -1,0 +1,211 @@
+<include file="Public:user_head" />
+		<!-- BEGIN CONTAINER -->   
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+		    <!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+					<span class="title">我的基本信息</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+                    <span class="title">我的账户</span>
+                    <span class="selected"></span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+					<span class="title">我的评论</span>
+					<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li>
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>	
+				</li>
+				<li class="">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+					<span class="title">我的站内信</span>
+					</a>
+				</li>
+				<li class="last">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+					<span class="title">我的积分</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->	
+		</div>
+        <!-- END SIDEBAR -->
+        <!-- 此处分段 -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的账户</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页 
+							<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>我的账户</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-reorder"></i>账户详情</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <h2 class="margin-bottom-20"> 转账详情 - No.<{$info.id}> </h2>
+                                    <h3 class="form-section">基本信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">转出用户:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.outuname|default='系统'}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">转入用户:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.inuname|default='系统'}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">转账金额:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static">￥<{$info.transcash}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">转账时间:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.transtime}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <h3 class="form-section">附加信息</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">转账说明:</label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static"><{$info.transinfo}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row--> 
+                                </div>
+                                <div class="form-actions fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-offset-10 col-md-2">
+                                                <a href="__APP__/Accounts/index" class="btn purple"><i class="fa fa-share"></i> 返回</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->  
+                        </div>
+                    </div>			
+				</div>
+			</div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+<include file="Public:user_footer" />

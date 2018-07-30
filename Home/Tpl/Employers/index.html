@@ -1,0 +1,185 @@
+<include file="Public:head" />
+    <!-- 页面内容开始 -->  
+    <div class="page-container" >
+        <!-- 面包屑导航开始 -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>雇佣者列表</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="__APP__">主页</a></li>
+                        <li><a href="__APP__/Developers/index">寻找会员</a></li>
+                        <li class="active">雇佣者列表</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 面包屑导航结束 -->
+		<!-- BEGIN CONTAINER -->   
+		<div class="container min-hight">
+			<!-- BEGIN BLOG -->
+			<div class="row">
+				<!-- BEGIN LEFT SIDEBAR -->            
+				<div class="col-md-9 col-sm-9 blog-posts margin-bottom-40">
+                    <volist name="list" id="vo">
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+							<!-- BEGIN CAROUSEL -->            
+							<div class="front-carousel">
+							    <div id="myCarousel" class="carousel slide">
+									<!-- Carousel items -->
+									<div class="carousel-inner">
+									    <div class="active item">
+                                            <img src="__ROOT__/Uploads/users/<{$vo.avatar}>" alt="">
+										</div>
+									</div>
+								</div>                
+							</div>
+							<!-- END CAROUSEL -->             
+						</div>
+						<div class="col-md-8 col-sm-8">
+                            <h2><a href="__URL__/view/id/<{$vo.id}>"> <{$vo.uname}></a></h2>
+							<ul class="blog-info">
+                                <li><i class="fa fa-calendar"></i> <{$vo.addtime}></li>
+                                <li><i class="fa fa-comments"></i> <{$vo.elevel}></li>
+                                <li><i class="fa fa-tags"></i> <{$vo.skills|default="用户暂未填写"}></li>
+							</ul>
+                            <p><{$vo.dselfintro}></p>
+                            <a class="more" href="__URL__/view/id/<{$vo.id}>">查看更多 <i class="icon-angle-right"></i></a>
+						</div>
+					</div>
+					<hr class="blog-post-sep">
+                    </volist>
+					<!--<div class="text-center">
+						<ul class="pagination pagination-centered">
+							<li><a href="#">上一页</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li class="active"><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">下一页</a></li>
+						</ul>
+                    </div>-->                
+				</div>
+				<!-- END LEFT SIDEBAR -->
+
+				<!-- BEGIN RIGHT SIDEBAR -->            
+				<div class="col-md-3 col-sm-3 blog-sidebar">
+					<!-- CATEGORIES START -->
+					<h2 class="no-top-space">雇佣者所属地区</h2>
+					<ul class="nav sidebar-categories margin-bottom-40">
+						<li><a href="">东北地区</a></li>
+						<li><a href="">华东地区</a></li>
+						<li><a href="">华北地区</a></li>
+						<li class="active"><a href="">华南地区</a></li>
+						<li><a href="">华中地区</a></li>
+						<li><a href="">西北地区</a></li>
+						<li><a href="">西南地区</a></li>
+					</ul>
+					<!-- CATEGORIES END -->
+					<!-- BEGIN RECENT NEWS -->                            
+					<h2>人气雇佣者</h2>
+					<div class="recent-news margin-bottom-10">
+                        <volist name="like" id="vo">
+						<div class="row margin-bottom-10">
+							<div class="col-md-3">
+                                <img src="__ROOT__/Uploads/users/<{$vo.avatar}>" alt="" class="img-responsive">
+							</div>
+							<div class="col-md-9 recent-news-inner">
+                                <h3><a href="__URL__/view/id/<{$vo.id}>"><{$vo.uname}></a></h3>
+                                <p><{$vo.skills}></p>
+							</div>                        
+						</div>
+                        </volist>
+					</div>
+					<!-- END RECENT NEWS --> 
+					<!-- BEGIN BLOG TALKS -->
+					<div class="blog-talks margin-bottom-30">
+						<h2>网站公告</h2>
+						<div class="tab-style-1">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab-1" data-toggle="tab">公告一</a></li>
+								<li><a href="#tab-2" data-toggle="tab">公告二</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane row-fluid fade in active" id="tab-1">
+									<p class="margin-bottom-10">公告一的内容</p>
+									<p><a href="#" class="read-more">查看更多</a></p>
+								</div>
+								<div class="tab-pane fade" id="tab-2">
+									<p>公告二的内容</p>
+								</div>
+							</div>
+						</div>
+					</div>                            
+					<!-- END BLOG TALKS -->
+					<!-- BEGIN BLOG PHOTOS STREAM -->
+					<div class="blog-photo-stream margin-bottom-20">
+						<h2>积分top8</h2>
+						<ul class="list-unstyled">
+                            <volist name="poin" id="vo">
+                            <li>
+                            <div style="float:left;margin-right:5px;margin-bottom:5px;" class="list-unstyled">
+                                <div>
+                                    <a href="__URL__/view/id/<{$vo.uid}>">
+                                        <img style="width:54px;" src="__ROOT__/Uploads/users/<{$vo.avatar}>" alt="">
+                                    </a>
+                                </div>
+                                <div style="text-align:center;background:#0da3e2;color:#fff;"><{$vo.uname}></div>
+                            </div>
+                            </li>
+                            </volist>
+						</ul>                    
+					</div>
+					<!-- END BLOG PHOTOS STREAM -->
+					<!-- BEGIN BLOG TAGS -->
+					<div class="blog-tags margin-bottom-20" style="float:left;">
+						<h2>热门技能</h2>
+						<ul>
+							<li><a><i class="fa fa-tags"></i>php</a></li>
+							<li><a><i class="fa fa-tags"></i>c++</a></li>
+							<li><a><i class="fa fa-tags"></i>java</a></li>
+							<li><a><i class="fa fa-tags"></i>html5</a></li>
+							<li><a><i class="fa fa-tags"></i>css</a></li>
+							<li><a><i class="fa fa-tags"></i>c</a></li>
+							<li><a><i class="fa fa-tags"></i>mysql</a></li>
+							<li><a><i class="fa fa-tags"></i>ajax</a></li>
+						</ul>
+					</div>
+					<!-- END BLOG TAGS -->
+				</div>
+				<!-- END RIGHT SIDEBAR -->            
+			</div>
+			<!-- END BEGIN BLOG -->
+		</div>
+        <!-- END CONTAINER -->
+        <!-- 数据实时刷新开始 -->
+        <div class="container">
+            <div class="row no-space-steps margin-bottom-40">
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-one">
+                        <h2><{$statistics['users']}></h2>
+                        <p>用户</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-two">
+                        <h2><{$statistics['projects']}></h2>
+                        <p>需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-three">
+                        <h2><{$statistics['account']}></h2>
+                        <p>项目金额</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <!-- 数据实时刷新结束 -->
+    </div>
+    <!-- 页面内容结束 -->
+<include file="Public:footer" />

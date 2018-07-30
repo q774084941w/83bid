@@ -1,0 +1,121 @@
+<include file="Public:head" />
+    <!-- 页面内容开始 -->  
+    <div class="page-container" >
+        <!-- 面包屑导航开始 -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>发布项目</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="__APP__">主页</a></li>
+                        <li class="active">发布项目</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 面包屑导航结束 -->
+        <!-- BEGIN CONTAINER -->   
+        <div class="container min-hight">
+            <!-- ROW 1 -->
+            <div class="row margin-bottom-40">
+            <!--<div class="col-md-6 "></div>-->
+                <div class="col-md-12 ">
+                    <!-- BLOCK START -->   
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><h3 class="panel-title">发布项目</h3></div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form" action="__URL__/insert" method="post">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目名称</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="pname" class="form-control"  placeholder="输入项目名称">
+                                        <!--<span class="help-block">A block of help text.</span>-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目类别</label>
+                                    <div class="col-md-9">
+                                        <{$category}>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目预算</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="budget" class="form-control"  placeholder="输入项目预算">
+                                        <span class="help-block">单位：元</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">竟标时长</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="biddingtime" class="form-control"  placeholder="输入竟标时长">
+                                        <span class="help-block">单位：小时</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目时长</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="projecttime" class="form-control"  placeholder="输入项目时长">
+                                        <span class="help-block">单位：小时</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目描述</label>
+                                    <div class="col-md-9">
+                                        <textarea name="description" class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-md-3 control-label">项目所需技能</label>
+                                    <div class="col-md-9">
+                                        <div style="margin-top:8px">
+                                            <{$needskills}>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="form-actions fluid">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="submit" class="btn green">立即发布</button>
+                                        <a href="" class="btn default">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- BLOCK END -->
+                </div>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <!-- 数据实时刷新开始 -->
+        <div class="container">
+            <div class="row no-space-steps margin-bottom-40">
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-one">
+                        <h2><{$statistics['users']}></h2>
+                        <p>用户</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-two">
+                        <h2><{$statistics['projects']}></h2>
+                        <p>需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-three">
+                        <h2><{$statistics['account']}></h2>
+                        <p>项目金额</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <!-- 数据实时刷新结束 -->
+    </div>
+    <!-- 页面内容结束 -->
+<include file="Public:footer" />

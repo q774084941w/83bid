@@ -1,0 +1,117 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>操作</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="__URL__/index">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="__URL__/index">项目管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="__URL__/index">项目列表</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN EXAMPLE TABLE PORTLET-->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>审核项目列表</div>
+                            <div class="actions">
+
+							</div>
+						</div>
+						<div class="portlet-body">
+                            <form action="__URL__/del" method="post">
+							<table class="table table-striped table-bordered table-hover" id="sample_2">
+                                <thead>
+									<tr>
+                                        <th>#ID</th>
+										<th>项目编号</th>
+										<th>项目名称</th>
+										<th>审核状态</th>
+										<th>发布者</th>
+										<th>操作</th>
+									</tr>
+                                </thead>
+                                <tbody>
+								<volist name="data" id="vo">
+									<tr class="odd gradeX">
+                                        <td><{$vo.id}></td>
+                                        <td><{$vo.pnumber}></td>
+										<td><{$vo.pname}></td>
+										<td><{$vo.name}></td>
+										<td><{$vo.uname}></td>
+                                        <td>
+                                             <a href="__APP__/Projects/view/id/<{$vo.id}>" class="btn btn-xs yellow">
+												 <i class="fa fa-file-o"></i>
+												 详情
+											 </a>
+											<switch name="vo.examine_id">
+												<case value="1">
+													<a href="__URL__/adopt/id/<{$vo.id}>/examine/2" class="btn btn-xs green">
+														<i class="fa fa-file-o"></i>
+														通过
+													</a>
+													<a href="__URL__/adopt/id/<{$vo.id}>/examine/3" class="btn btn-xs red">
+														<i class="fa fa-file-o"></i>
+														不通过
+													</a>
+												</case>
+												<case value="2">
+													<a href="__URL__/adopt/id/<{$vo.id}>/examine/3" class="btn btn-xs red">
+														<i class="fa fa-file-o"></i>
+														不通过
+													</a>
+												</case>
+												<case value="3">
+													<a href="__URL__/adopt/id/<{$vo.id}>/examine/2" class="btn btn-xs red">
+														<i class="fa fa-file-o"></i>
+														通过
+													</a>
+												</case>
+												<default/>
+												未知
+											</switch>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table> 
+                            </form>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+        </div>
+<include file="Public:footer" />	

@@ -1,0 +1,250 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+		<div class="page-content">       
+			<!-- BEGIN PAGE HEADER-->
+			<!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>操作</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="__URL__/index">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="__URL__/index">用户管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="__URL__/dlist">开发者列表</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN EXAMPLE TABLE PORTLET-->
+					<div class="portlet box light-grey">
+						<div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>  <{$thisClassName}>列表</div>
+                            <div class="actions">
+								<a href="javaScript:" id="addPay" class="btn green"><i class="fa fa-plus"></i> 添加  <{$thisClassName}></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+                            <form action="__URL__/del" method="post">
+							<table class="table table-striped table-bordered table-hover" id="sample_2">
+                                <thead>
+									<tr>
+                                        <th>#ID</th>
+										<th>名称</th>
+                                        <th>创建时间</th>
+                                        <th>状态</th>
+										<th>操作</th>
+									</tr>
+                                </thead>
+                                <tbody>
+								<volist name="data" id="vo">
+									<tr class="odd gradeX">
+                                        <td><{$vo.type_id}></td>
+                                        <td><{$vo.name}></td>
+                                        <td><{$vo.time}></td>
+                                        <td><{$vo['status']==1?'启用中':'禁用了'}></td>
+                                        <td width="168px">
+                                            <if condition="$vo.status eq 1">
+                                                <a href="__URL__/update/id/<{$vo.type_id}>/status/2"
+                                                class="btn btn-xs red" style="width:50px;">
+                                                    <i class="fa fa-times"></i> 禁用</a>
+                                            <else />
+                                                <a href="__URL__/update/id/<{$vo.type_id}>/status/1"
+                                                class="btn btn-xs blue">
+                                                    <i class="fa fa-edit"></i> 启用</a>
+                                            </if>
+                                            <button class="btn btn-xs yellow " name="change" type="button">
+                                                <i class="fa fa-file-o"></i> 修改</button>
+
+                                        </td>
+                                        <input type="hidden" value="<{$vo.type_id}>">
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table> 
+                            </form>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+        </div>
+
+
+<include file="Public:footer" />
+
+<!--添加<{$thisClassName}>弹窗-->
+<div class="modal fade"  id="myModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog"
+         role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+
+                <h4 class="modal-title">添加<{$thisClassName}></h4>
+
+            </div>
+
+            <form action="__URL__/add" method="post" id="apply_form" class="js-ajax-form">
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+
+                        <label for="txt_remark">名称</label>
+
+                        <input type="text"
+                               name="<{$name}>"
+                               class="form-control"
+                               id="txt_remark"
+                               placeholder="名称">
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-default"  data-dismiss="modal">
+                        <!--<span
+                            class="glyphicon glyphicon-remove"  aria-hidden="true"></span>-->
+                        关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary  js-ajax-submit" >
+							<span class="glyphicon glyphicon-floppy-disk"  aria-hidden="true">
+
+							</span>
+                        添加
+                    </button>
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!--添加<{$thisClassName}>弹窗-->
+
+<!--修改<{$thisClassName}>弹窗-->
+<div class="modal fade"  id="myModal2"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog"
+         role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+
+                <h4 class="modal-title">修改<{$thisClassName}></h4>
+
+            </div>
+
+            <form action="__URL__/change" method="post" class="js-ajax-form">
+                <input type="hidden" name="<{$id}>" id="payment_id">
+                <div class="modal-body">
+
+                    <div class="form-group">
+
+                        <label for="txt_remark">名称</label>
+
+                        <input type="text"
+                               name="<{$name}>"
+                               class="form-control"
+                               id="payment_name"
+                               placeholder="名称">
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-default"  data-dismiss="modal">
+                        <!--<span
+                            class="glyphicon glyphicon-remove"  aria-hidden="true"></span>-->
+                        关闭</button>
+                    <button type="submit"
+                            class="btn btn-primary  js-ajax-submit" >
+							<span class="glyphicon glyphicon-floppy-disk"  aria-hidden="true">
+
+							</span>
+                        修改
+                    </button>
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!--修改<{$thisClassName}>弹窗-->
+
+
+
+
+<script>
+    $("#addPay").click(function () {
+        $('#myModal').modal();
+    });
+    
+    $('[name="change"]').click(function () {
+        var thisTd =  $(this).parent();
+        $('#payment_id').val(thisTd.next().val());
+        $('#payment_name').val(thisTd.parent().children().eq(1).text());
+        $('#myModal2').modal();
+    });
+</script>

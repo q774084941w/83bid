@@ -1,0 +1,118 @@
+<include file="Public:head_left" />
+
+<include file="Public:left" />
+
+        <div class="page-content">  
+            <!-- BEGIN PAGE HEADER-->
+            <!--<div class="row">
+				<div class="col-md-12">
+					&lt;!&ndash; BEGIN PAGE TITLE & BREADCRUMB&ndash;&gt;
+					<h3 class="page-title">
+						威客 <small>后台管理</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>操作</span> <i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">主页</a> 
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">日志管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="#">添加日志信息</a></li>
+					</ul>
+					&lt;!&ndash; END PAGE TITLE & BREADCRUMB&ndash;&gt;
+				</div>
+			</div>-->
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                <!--表格开始-->
+                    <div class="portlet box yellow">
+					    <div class="portlet-title">
+							<div class="caption"><i class="fa fa-user"></i>添加系统日志</div>
+							<div class="actions">
+								<a href="__URL__/index" class="btn green"><i class="fa fa-share"></i> 返回</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form action="__URL__/insert" method="post" class="form-horizontal">
+								<div class="form-body">
+									<div class="form-group">
+										<label class="control-label col-md-3">操作员<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="operator"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">行为<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="behavior"/>
+											</div>
+										</div>
+                                    </div>
+                                    <div class="form-group">
+										<label class="control-label col-md-3">类型<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>
+												<input type="text" class="form-control" name="type"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">操作对象<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="operand"/>
+											</div>
+                                            <!--<span class="help-block">e.g: 5500 0000 0000 0004</span>-->
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">操作结果<span class="required">*</span></label>
+										<div class="col-md-4">
+											<div class="input-icon right">                                       
+												<i class="fa"></i>   
+												<input type="text" class="form-control" name="result"/>
+											</div>
+                                            <!--<span class="help-block">示例: http://www.demo.com or http://demo.com</span>-->
+										</div>
+									</div>
+								</div>
+								<div class="form-actions fluid">
+									<div class="col-md-offset-3 col-md-9">
+										<button type="submit" class="btn green">提交</button>
+										<a href="__URL__/index" class="btn default">取消</a>
+									</div>
+								</div>
+							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+					<!-- END VALIDATION STATES-->
+				</div>
+			</div>
+        </div>
+<include file="Public:footer" />

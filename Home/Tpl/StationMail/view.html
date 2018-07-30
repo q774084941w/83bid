@@ -1,0 +1,195 @@
+<include file="Public:user_head" />
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="no" method="post">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="搜索..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+				<li class="start ">
+					<a href="__APP__">
+					<i class="fa fa-home"></i> 
+					<span class="title">网站首页</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/User/index">
+					<i class="fa fa-user"></i> 
+					<span class="title">我的基本信息</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="__APP__/Accounts/index">
+					<i class="fa fa-rmb"></i> 
+					<span class="title">我的账户</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/UserProjects/index">
+					<i class="fa fa-bookmark"></i> 
+					<span class="title">我的项目</span>
+					</a>	
+                </li>
+                <li class="">
+					<a href="__APP__/Comments/index">
+					<i class="fa fa-comments"></i> 
+					<span class="title">我的评论</span>
+					<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li>
+							<a href="__APP__/Comments/dsent">
+							开发者评论</a>
+                        </li>
+                        <li>
+							<a href="__APP__/Comments/esent">
+							雇佣者评论</a>
+						</li>
+                    </ul>	
+				</li>
+				<li class="active ">
+					<a href="__APP__/StationMail/index">
+					<i class="fa fa-envelope"></i> 
+                    <span class="title">我的站内信</span>
+                    <span class="selected"></span>
+					</a>
+				</li>
+				<li class="last">
+					<a href="__APP__/Points/index">
+					<i class="fa fa-tags"></i> 
+					<span class="title">我的积分</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">  
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+						会员中心 <small>我的站内信</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+                        <li class="btn-group">
+                            <a href="__APP__">
+                            <button type="button" class="btn blue">
+                                <span>首页</span> <i class="fa fa-share"></i>
+                            </button>
+                            </a>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							主页
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							会员中心
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>站内信</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<div class="row inbox">
+				<div class="col-md-2">
+					<ul class="inbox-nav margin-bottom-10">
+						<li class="compose-btn">
+							<a href="__URL__/compose" data-title="Compose" class="btn green"> 
+							<i class="fa fa-edit"></i> 写信
+							</a>
+						</li>
+                        <li class="inbox 
+                            <if condition="$info.active eq index">
+                                active
+                            </if>
+                        ">
+							<a href="__URL__/index">收件箱</a>
+							<b></b>
+						</li>
+                        <li class="sent
+                            <if condition="$info.active eq sent">
+                                active
+                            </if>
+                        "><a href="__URL__/sent">发件箱</a><b></b></li>
+                        <li class="draft
+                            <if condition="$info.active eq draft">
+                                active
+                            </if>
+                        "><a href="__URL__/draft">草稿箱</a><b></b></li>
+                        <li class="trash
+                            <if condition="$info.active eq trash">
+                                active
+                            </if>
+                        "><a href="__URL__/trash">回收站</a><b></b></li>
+					</ul>
+				</div>
+				<div class="col-md-10">
+					<div class="inbox-header">
+						<h1 class="pull-left"></h1>
+						<form class="form-inline pull-right" action="index.html">
+							<div class="input-group input-medium">
+								<input type="text" class="form-control" placeholder="搜索">
+								<span class="input-group-btn">                   
+								<button type="submit" class="btn green"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
+<div class="inbox-header inbox-view-header">
+	<h1 class="pull-left">详情</h1>
+	<div class="pull-right"><i class="fa fa-print"></i></div>
+</div>
+<div class="inbox-view-info">
+	<div class="row">
+		<div class="col-md-7">
+            <img style="width:29px;" src="__ROOT__/Uploads/users/<{$info.savatar}>"> 
+            <span class="bold"><{$info.sname}></span>
+            <span>&nbsp;&#60;<{$info.title}>&#62;&nbsp;</span> to <span class="bold"><{$info.rname}></span> on <{$info.sendtime}>
+		</div>
+		<div class="col-md-5 inbox-info-btn">
+			<div class="btn-group">
+                    <if condition="$info.instatus eq 1">
+				<div class="btn blue reply-btn" style="height:30px;">
+                    <i class="fa fa-reply"></i> 
+                    <a href="__URL__/reply/sname/<{$info.sname}>/title/<{$info.title}>" 
+                        style="color:#fff;line-height:10px;">回复</a>
+				</div>
+                    </if>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="inbox-view">
+    <p><{$info.content}></p>
+</div>
+<hr>
+
+				</div>
+			</div>
+		</div>
+		<!-- END PAGE -->
+	</div>
+	<!-- END CONTAINER -->
+<include file="Public:user_footer" />

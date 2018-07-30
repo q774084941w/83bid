@@ -1,0 +1,156 @@
+<include file="Public:head" />
+    <!-- 页面内容开始 -->  
+    <div class="page-container" >
+        <!-- 面包屑导航开始 -->   
+        <div class="row breadcrumbs margin-bottom-40">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>项目详情</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="__APP__">主页</a></li>
+                        <li class="active">项目详情</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 面包屑导航结束 -->
+        <!-- BEGIN CONTAINER -->   
+        <div class="container min-hight portfolio-page margin-bottom-30">
+            <!-- BEGIN PORTFOLIO ITEM -->
+            <div class="row">
+                <!-- BEGIN CAROUSEL -->            
+                <div class="col-md-5 ">
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <img src="__ROOT__/Uploads/projects/view/<{$info.category}>.jpg" alt="">
+                                <div class="carousel-caption">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Carousel nav -->
+                    </div>                
+                </div>
+                <!-- END CAROUSEL -->                             
+                <!-- BEGIN PORTFOLIO DESCRIPTION -->            
+                <div class="col-md-7">
+                    <h2><{$info.pname}></h2>
+                    <p><{$info.description}></p>
+                    <br>	
+                    <div class="row front-lists-v2 margin-bottom-15">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-html5"></i>雇佣者：<{$info.euname}></li>
+                                <li><i class="fa fa-html5"></i>中标者：<{$info.buname|default='--'}></li>
+                                <li><i class="fa fa-bell"></i>项目编号：<{$info.pnumber}></li>
+                                <li><i class="fa fa-globe"></i>项目类别：<{$info.categoryname}></li>
+                                <li><i class="fa fa-shopping-cart"></i>项目状态：<{$info.status}></li>
+                                <li><i class="fa fa-shopping-cart"></i>所需技能：<{$info.needskills}></li>
+								<switch name="info.status">
+								<case value="正在竞标中">
+								<li>
+								<form action="__APP__/Bidders/pnumber" method="post">
+									<i class="fa fa-cny"></i>
+									<input type="text" id="bid" name="bid" placeholder="请输入竞标价格" style="width:120px;">&nbsp;&nbsp;元
+									<input type="hidden" id="pnumber" name="pnumber" value="<{$info.pnumber}>">
+									<input type="hidden" id="pid" name="pid" value="<{$info.id}>">
+									<input type="submit" class="btn theme-btn btn-sm pull-right" value="立即竞标"/>
+								</form>
+								</li>
+								</case>
+								</switch>
+                            </ul>
+                        </div>
+			
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-dropbox"></i>发布时间：<{$info.addtime}></li>
+                                <li><i class="fa fa-cloud"></i>中标时间：<{$info.bidtime|default='--'}></li>
+                                <li><i class="fa fa-comments"></i>竟标时长：<{$info.biddingtime}>&nbsp;小时</li>
+                                <li><i class="fa fa-star"></i>结束时间：<{$info.endtime|default='--'}></li>
+                                <li><i class="fa fa-star"></i>中标出价：<{$info.bid|default='--'}></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PORTFOLIO DESCRIPTION -->            
+            </div>
+            <!-- END PORTFOLIO ITEM --> 
+
+            <!-- BEGIN BLOCKQUOTE BLOCK -->   
+            <div class="row quote-v1">
+                <div class="col-md-7 quote-v1-inner">
+                    <span>赶快来参与竟标吧!</span>
+                </div>
+                <div class="col-md-5 quote-v1-inner text-right">
+                    <a class="btn-transparent" href="#">
+                        <i class="fa fa-rocket margin-right-10"></i>
+                        项目时长：<{$info.projecttime}>&nbsp;小时
+                    </a>
+                    <a class="btn-transparent" href="#">
+                        <i class="fa fa-gift margin-right-10"></i>
+                        项目预算：<{$info.budget}>&nbsp;元
+                    </a>
+                </div>
+            </div>
+            <!-- END BLOCKQUOTE BLOCK -->
+            <div class="clearfix"></div>
+            <!-- BEGIN RECENT WORKS -->
+            <div class="row recent-work margin-bottom-40">
+                <div class="col-md-3">
+                    <h2><a href="portfolio.html">竞标者列表</a></h2>
+                    <p>这里展示了参与竞标该项目的开发者，可以点击开发者头像查看详细信息</p>
+                </div>
+                <div class="col-md-9">
+                    <ul class="bxslider">
+                    <volist name="list" id="vo">
+                        <li>
+                            <em style="width:276px;height:207px">
+                                <img src="__ROOT__/Uploads/users/<{$vo.avatar}>" alt="" />
+                                <a  href="__APP__/Developers/view/id/<{$vo.bidderid}>"><i class="fa fa-link icon-hover icon-hover-1"></i></a>
+                                <a  style="width:10px" href="__ROOT__/Uploads/users/<{$vo.avatar}>" class="fancybox-button" title="用户名:<{$vo.uname}>" >
+                                    <i class="fa fa-search icon-hover icon-hover-2"></i>
+                                </a>
+                            </em>
+                            <a class="bxslider-block" style="width:276px" href="">
+                                <strong>竟标者：<{$vo.uname}></strong>
+                                <b>竟标者出价：<{$vo.bid}>&nbsp;元</b>
+                            </a>
+                        </li>
+                    </volist>
+                    </ul>        
+                </div>
+            </div>   
+            <!-- END RECENT WORKS -->
+        </div>
+        <!-- 数据实时刷新开始 -->
+        <div class="container">
+            <div class="row no-space-steps margin-bottom-40">
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-one">
+                        <h2><{$statistics['users']}></h2>
+                        <p>用户</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-two">
+                        <h2><{$statistics['projects']}></h2>
+                        <p>需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="front-steps front-step-three">
+                        <h2><{$statistics['account']}></h2>
+                        <p>项目金额</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <!-- 数据实时刷新结束 -->
+    </div>
+    <!-- 页面内容结束 -->
+<include file="Public:footer" />
